@@ -1,0 +1,24 @@
+version: '3.4'
+services:
+        web1:
+                image: zgchuck/infojob-web
+                build:
+                        context: ./web
+                ports:
+                        - 18080:80
+                hostname: web1
+                networks:
+                        - infojob
+
+        web2:
+                image: zgchuck/infojob-web
+                build:
+                        context: ./web
+                ports:
+                        - 19080:80
+                hostname: web2
+                networks:
+                        - infojob
+networks:
+        infojob:
+

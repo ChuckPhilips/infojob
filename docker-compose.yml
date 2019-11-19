@@ -1,24 +1,39 @@
 version: '3.4'
 services:
-        web1:
-                image: zgchuck/infojob-web
-                build:
-                        context: ./web
-                ports:
-                        - 18080:80
-                hostname: web1
-                networks:
-                        - infojob
+  web1:
+    image: zgchuck/infojob-web
+    build:
+      context: ./web
+    ports:
+      - 18080:80
+    hostname: web1
+    networks:
+      - infojob
+        
+  web2:
+    image: zgchuck/infojob-web
+    build:
+      context: ./web
+    ports:
+      - 19080:80
+    hostname: web2
+    networks:
+      - infojob
 
-        web2:
-                image: zgchuck/infojob-web
-                build:
-                        context: ./web
-                ports:
-                        - 19080:80
-                hostname: web2
-                networks:
-                        - infojob
+  lb1:
+    image: zgchuck/infojob-lb
+    build:
+      context: ./lb
+    sysctls:
+      - net.ipv4.ip_nonlocal_bind=1
+    ports:
+      - 28080:8080
+      - 28090:8090
+    hostname: lb1
+    privileged: true
+    networks:
+      - infojob
+
 networks:
         infojob:
 

@@ -38,7 +38,7 @@ services:
           ipv4_address: 172.24.0.2
 
   lb2:
-    image: zgchuck/infojob-lb
+    image: zgchuck/infojob-lb2
     build:
       context: ./lb/lb2
     sysctls:
@@ -46,7 +46,7 @@ services:
     ports:
       - 29080:8080
       - 29090:8090
-    hostname: lb1
+    hostname: lb2
     privileged: true
     networks:
       infojob:

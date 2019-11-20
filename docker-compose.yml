@@ -23,9 +23,9 @@ services:
           ipv4_address: 172.24.0.5
 
   lb1:
-    image: zgchuck/infojob-lb
+    image: zgchuck/infojob-lb1
     build:
-      context: ./lb
+      context: ./lb/lb1
     sysctls:
       - net.ipv4.ip_nonlocal_bind=1
     ports:
@@ -40,7 +40,7 @@ services:
   lb2:
     image: zgchuck/infojob-lb
     build:
-      context: ./lb
+      context: ./lb/lb2
     sysctls:
       - net.ipv4.ip_nonlocal_bind=1
     ports:

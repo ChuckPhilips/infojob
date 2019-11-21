@@ -8,7 +8,7 @@ RUN \
     rm -rf /var/lib/apt/lists/* && \
     sed -i 's/^\(module.*imklog.*\)/### \1/g' /etc/rsyslog.conf
 
-#COPY ./ssl/ /etc/ssl
+COPY ./lb/ssl/ /etc/ssl
 RUN mkdir -p /root/.ssh
 RUN touch /root/.ssh/authorized_keys
 COPY ./ansible-key.pub /tmp

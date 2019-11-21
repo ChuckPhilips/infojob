@@ -30,3 +30,4 @@ RUN mkdir /var/run/sshd
 EXPOSE 22 8080 8443 8090
 
 ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/bin/bash"]

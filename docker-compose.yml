@@ -52,6 +52,18 @@ services:
       infojob:
           ipv4_address: 172.24.0.3
 
+  ansible:
+    image: zgchuck/ansible
+    build:
+      context: ./ansible
+    hostname: ansible
+    privileged: true
+    networks:
+      infojob:
+          ipv4_address: 172.24.0.8
+    tty: true
+
+
 networks:
   infojob:
     driver: bridge

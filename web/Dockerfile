@@ -16,5 +16,3 @@ RUN \
 EXPOSE 80 443
 
 ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["/bin/bash"]

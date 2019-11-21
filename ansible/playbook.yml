@@ -3,4 +3,4 @@
   remote_user: root
   tasks:
     - name: show dir content
-      command: ls -l /
+      service: name=haproxy state=reloaded

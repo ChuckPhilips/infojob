@@ -3,7 +3,8 @@ services:
   web1:
     image: zgchuck/infojob-web
     build:
-      context: ./web
+      context: .
+      dockerfile: ./web/Dockerfile
     ports:
       - 18080:80
     hostname: web1
@@ -14,7 +15,8 @@ services:
   web2:
     image: zgchuck/infojob-web
     build:
-      context: ./web
+      context: .
+      dockerfile: ./web/Dockerfile
     ports:
       - 19080:80
     hostname: web2
@@ -25,7 +27,8 @@ services:
   lb1:
     image: zgchuck/infojob-lb1
     build:
-      context: ./lb/lb1
+      context: .
+      dockerfile: ./lb/lb1/Dockerfile
     sysctls:
       - net.ipv4.ip_nonlocal_bind=1
     ports:
@@ -40,7 +43,8 @@ services:
   lb2:
     image: zgchuck/infojob-lb2
     build:
-      context: ./lb/lb2
+      context: .
+      dockerfile: ./lb/lb2/Dockerfile
     sysctls:
       - net.ipv4.ip_nonlocal_bind=1
     ports:
@@ -55,7 +59,8 @@ services:
   ansible:
     image: zgchuck/ansible
     build:
-      context: ./ansible
+      context: .
+      dockerfile: ./ansible/Dockerfile
     hostname: ansible
     privileged: true
     networks:

@@ -15,9 +15,9 @@ COPY ./ansible-key.pub /tmp
 RUN cat /tmp/ansible-key.pub >> /root/.ssh/authorized_keys
 RUN rm /tmp/ansible-key.pub
 
-COPY ./haproxy.cfg /etc/haproxy/
-COPY ./keepalived.conf /etc/keepalived/
-COPY ./entrypoint.sh /
+COPY ./lb/haproxy.cfg /etc/haproxy/
+COPY ./lb/lb1/keepalived.conf /etc/keepalived/
+COPY ./lb/entrypoint.sh /
 
 RUN chmod +x /entrypoint.sh
 RUN mkdir /run/haproxy

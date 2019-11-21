@@ -2,9 +2,9 @@ FROM nginx
 
 LABEL maintainer="zgchuck@gmail.com"
 
-COPY ./entrypoint.sh /
-COPY ./default.conf /etc/nginx/conf.d/
-COPY ./index.html /usr/share/nginx/html/
+COPY ./web/entrypoint.sh /
+COPY ./web/default.conf /etc/nginx/conf.d/
+COPY ./web/index.html /usr/share/nginx/html/
 
 RUN \
 # install packages

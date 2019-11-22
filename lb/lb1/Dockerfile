@@ -4,7 +4,7 @@ LABEL maintainer="zgchuck@gmail.com"
 
 RUN \
     apt-get update && \
-    apt-get install --no-install-recommends --no-install-suggests -y vim inetutils-ping iproute2 curl rsyslog haproxy less keepalived python openssh-server && \
+    apt-get install --no-install-recommends --no-install-suggests -y vim inetutils-ping iproute2 curl rsyslog haproxy less keepalived python openssh-server rsync && \
     rm -rf /var/lib/apt/lists/* && \
     sed -i 's/^\(module.*imklog.*\)/### \1/g' /etc/rsyslog.conf
 

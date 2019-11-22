@@ -1,0 +1,11 @@
+---
+ - hosts: sync
+   tasks:
+     - name: Fetch the file from the mwiapp01 to master
+       run_once: yes
+       fetch: src=/tmp/* dest=buffer/ flat=yes
+       when: "{{ ansible_hostname == 'origin'}}"
+
+     - name: Copy the file from master to mwiapp02
+       copy: src=buffer/ dest=/tmp/
+       when: "{{ ansible_hostname == 'lb1' }}"

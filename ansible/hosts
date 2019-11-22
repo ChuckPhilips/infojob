@@ -1,3 +1,12 @@
+origin ansible_connection=ssh        ansible_user=root ansible_password=pass
+lb1
+lb2
+
+[sync]
+origin
+lb1
+lb2
+
 [docker-ssh]
 lb1
 lb2

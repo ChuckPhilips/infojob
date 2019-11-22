@@ -7,7 +7,7 @@ RUN \
   apt-get install -y software-properties-common && \
   apt-add-repository ppa:ansible/ansible && \
   apt-get update && \
-  apt-get install -y --force-yes ansible less iputils-ping vim
+  apt-get install -y --force-yes ansible less iputils-ping vim rsync
 
 COPY ./ansible/ansible.cfg /etc/ansible/ansible.cfg
 COPY ./ansible/hosts /etc/ansible/hosts

@@ -4,7 +4,7 @@ LABEL maintainer="zgchuck@gmail.com"
 
 RUN \
     apt-get update && \
-    apt-get install --no-install-recommends --no-install-suggests -y openssh-server python rsync && \
+    apt-get install --no-install-recommends --no-install-suggests -y openssh-server python rsync vim && \
     rm -rf /var/lib/apt/lists/*
 
 RUN echo 'root:pass' | chpasswd

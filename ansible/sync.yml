@@ -7,6 +7,7 @@
       src: /tmp/
       dest: /ansible/ssl
       recursive: yes
+      delete: yes
 
 - hosts: destination
   tasks:
@@ -15,6 +16,7 @@
       src: /ansible/ssl/
       dest: /etc/haproxy/ssl
       recursive: yes
+      delete: yes
     delegate_to: localhost
     notify: 
     - reload_haproxy

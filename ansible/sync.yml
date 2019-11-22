@@ -1,11 +1,26 @@
 ---
- - hosts: sync
-   tasks:
-     - name: Fetch the file from the mwiapp01 to master
-       run_once: yes
-       fetch: src=/tmp/* dest=buffer/ flat=yes
-       when: "{{ ansible_hostname == 'origin'}}"
+- hosts: origin
+  tasks:
+  - name: Synchronization of src on the inventory host to the dest on the localhost in pull mode
+    synchronize:
+      mode: pull
+      src: /tmp/
+      dest: /ansible/ssl
+      recursive: yes
 
-     - name: Copy the file from master to mwiapp02
-       copy: src=buffer/ dest=/tmp/
-       when: "{{ ansible_hostname == 'lb1' }}"
+- hosts: destination
+  tasks:
+  - name: Synchronization of src on delegate host to dest on the current inventory host.
+    synchronize:
+      src: /ansible/ssl/
+      dest: /tmp/
+      recursive: yes
+    delegate_to: localhost
+    notify: 
+    - reload_haproxy
+
+  handlers:
+  - name: reload_haproxy 
+    service:
+      name: haproxy
+      state: reloaded

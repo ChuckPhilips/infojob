@@ -70,6 +70,17 @@ services:
           ipv4_address: 172.24.0.8
     tty: true
 
+  origin:
+    image: zgchuck/origin
+    build:
+      context: .
+      dockerfile: ./origin/Dockerfile
+    hostname: origin
+    networks:
+      infojob:
+          ipv4_address: 172.24.0.9
+    tty: true
+
 
 networks:
   infojob:

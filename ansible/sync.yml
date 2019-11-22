@@ -13,7 +13,7 @@
   - name: Synchronization of src on delegate host to dest on the current inventory host.
     synchronize:
       src: /ansible/ssl/
-      dest: /tmp/
+      dest: /etc/haproxy/ssl
       recursive: yes
     delegate_to: localhost
     notify: 

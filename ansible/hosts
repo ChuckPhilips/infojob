@@ -10,3 +10,7 @@ lb2
 [docker-ssh]
 lb1
 lb2
+
+[destination]
+lb1
+lb2

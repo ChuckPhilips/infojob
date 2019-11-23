@@ -7,3 +7,4 @@ openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=HR/ST=Zagreba
 cat "www.${domain}.crt" "www.${domain}.key" >> /tmp/"www.${domain}.pem"
 rm "www.${domain}.key" "www.${domain}.crt"
 
+docker container exec -ti infojob_ansible_1 ansible-playbook /tmp/sync.yml

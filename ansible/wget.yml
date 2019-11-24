@@ -1,0 +1,56 @@
+---
+- hosts: localhost
+  tasks:
+
+  - name: Download certificate from the static server
+    get_url:
+      url: "http://static/{{ item }}"
+      dest: "/ansible/ssl/{{ item }}"
+      mode: '644'
+    with_items:
+      - www.infojob.com.pem
+      - www.infojob2.com.pem
+    register: files
+  
+    #- debug:
+    #  msg: "{{ files }}"
+  
+
+  - name: Get certificates expiration date
+    openssl_certificate_info:
+      path: "{{ item.dest }}"
+      valid_at:
+        point_1: "+1d"
+        point_2: "+5w"
+    loop: "{{ files.results }}"
+    register: certificates_validation
+
+    #- debug:
+    #  msg: "{{ certificates_validation }}"
+  
+
+  - name: Check if certificates are valid
+    assert:
+      that:
+        - item.valid_at.point_1      # valid in one day
+        - item.valid_at.point_2  # not valid in three weeks
+    loop: "{{ certificates_validation.results }}"
+
+
+- hosts: destination
+  tasks:
+  - name: Push certificates to loadbalancers
+    synchronize:
+      src: /ansible/ssl/
+      dest: /etc/haproxy/ssl
+      recursive: yes
+      delete: yes
+    delegate_to: localhost
+    notify: 
+    - reload_haproxy
+
+  handlers:
+  - name: reload_haproxy 
+    service:
+      name: haproxy
+      state: reloaded

@@ -83,6 +83,16 @@ services:
           ipv4_address: 172.24.0.9
     tty: true
 
+  static:
+    image: zgchuck/infojob-web
+    build:
+      context: .
+      dockerfile: ./web/Dockerfile
+    hostname: static
+    networks:
+      infojob:
+        ipv4_address: 172.24.0.10
+
 
 networks:
   infojob:

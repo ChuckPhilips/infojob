@@ -19,4 +19,5 @@ COPY ./ansible-key.pub /root/.ssh/id_rsa.pub
 #RUN ssh-keygen -t rsa -b 4096 -N '' -f /root/.ssh/id_rsa
  
 RUN mkdir /ansible
+RUN mkdir /ansible/ssl
 WORKDIR /ansible

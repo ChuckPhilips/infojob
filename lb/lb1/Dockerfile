@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu
 
 LABEL maintainer="zgchuck@gmail.com"
 
@@ -22,12 +22,8 @@ COPY ./lb/lb1/keepalived.conf /etc/keepalived/
 COPY ./lb/entrypoint.sh /
 
 RUN chmod +x /entrypoint.sh
-#RUN mkdir /run/haproxy
-#RUN chown haproxy:haproxy /run/haproxy
-#RUN chmod 2775 /run/haproxy
 RUN echo 'root:pass' | chpasswd
 RUN sed -i 's/\#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-RUN mkdir /var/run/sshd
 
 EXPOSE 22 8080 8443 8090
 

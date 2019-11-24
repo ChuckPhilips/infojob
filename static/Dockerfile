@@ -10,7 +10,6 @@ RUN \
 
 COPY ./static/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
-COPY ./static/index.html /usr/share/nginx/html/
 COPY ./static/generate.sh /generate.sh
 RUN chmod +x ./generate.sh
 

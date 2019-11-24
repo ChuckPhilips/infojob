@@ -11,8 +11,8 @@ RUN \
 
 COPY ./ansible/ansible.cfg /etc/ansible/ansible.cfg
 COPY ./ansible/hosts /etc/ansible/hosts
-COPY ./ansible/playbook.yml /tmp/playbook.yml
 COPY ./ansible/sync.yml /tmp/sync.yml
+COPY ./ansible/get.yml /tmp/get.yml
 COPY ./ansible/ansible-key /root/.ssh/id_rsa
 COPY ./ansible-key.pub /root/.ssh/id_rsa.pub
 

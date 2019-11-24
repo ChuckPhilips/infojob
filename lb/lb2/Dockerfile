@@ -10,7 +10,7 @@ RUN \
 
 RUN mkdir /etc/haproxy/ssl
 RUN chown haproxy:haproxy /etc/haproxy/ssl
-COPY ./lb/ssl/my-crt-key.pem /etc/haproxy/ssl/my-crt-key.pem
+COPY ./lb/ssl/ /etc/haproxy/ssl/
 RUN mkdir -p /root/.ssh
 RUN touch /root/.ssh/authorized_keys
 COPY ./ansible-key.pub /tmp

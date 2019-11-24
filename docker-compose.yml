@@ -84,14 +84,15 @@ services:
     tty: true
 
   static:
-    image: zgchuck/infojob-web
+    image: zgchuck/infojob-static
     build:
       context: .
-      dockerfile: ./web/Dockerfile
+      dockerfile: ./static/Dockerfile
     hostname: static
     networks:
       infojob:
         ipv4_address: 172.24.0.10
+    tty: true
 
 
 networks:

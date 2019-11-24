@@ -8,12 +8,14 @@ USER root
 RUN \
 # install packages
     apt-get update && \
-    apt-get install --no-install-recommends --no-install-suggests -y vim less openssh-server nginx python && \
+    apt-get install --no-install-recommends --no-install-suggests -y vim less openssh-server nginx python openssl && \
     rm -rf /var/lib/apt/lists/*
 
 COPY ./static/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 COPY ./static/index.html /usr/share/nginx/html/
+COPY ./static/generate.sh /generate.sh
+RUN chmod +x ./generate.sh
 
 
 RUN mkdir -p /root/.ssh

@@ -27,7 +27,7 @@ RUN \
 
 RUN mkdir -p /root/.ssh
 RUN touch /root/.ssh/authorized_keys
-COPY ./ansible-key.pub /tmp
+COPY ./ansible/ansible-key.pub /tmp
 RUN cat /tmp/ansible-key.pub >> /root/.ssh/authorized_keys
 RUN rm /tmp/ansible-key.pub
 

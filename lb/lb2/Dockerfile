@@ -13,7 +13,7 @@ RUN chown haproxy:haproxy /etc/haproxy/ssl
 COPY ./lb/ssl/ /etc/haproxy/ssl/
 RUN mkdir -p /root/.ssh
 RUN touch /root/.ssh/authorized_keys
-COPY ./ansible-key.pub /tmp
+COPY ./ansible/ansible-key.pub /tmp
 RUN cat /tmp/ansible-key.pub >> /root/.ssh/authorized_keys
 RUN rm /tmp/ansible-key.pub
 

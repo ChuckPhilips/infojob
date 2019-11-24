@@ -14,9 +14,7 @@ COPY ./ansible/hosts /etc/ansible/hosts
 COPY ./ansible/sync.yml /tmp/sync.yml
 COPY ./ansible/get.yml /tmp/get.yml
 COPY ./ansible/ansible-key /root/.ssh/id_rsa
-COPY ./ansible-key.pub /root/.ssh/id_rsa.pub
-
-#RUN ssh-keygen -t rsa -b 4096 -N '' -f /root/.ssh/id_rsa
+COPY ./ansible/ansible-key.pub /root/.ssh/id_rsa.pub
  
 RUN mkdir /ansible
 RUN mkdir /ansible/ssl

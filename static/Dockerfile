@@ -2,9 +2,6 @@ FROM ubuntu
 
 LABEL maintainer="zgchuck@gmail.com"
 
-
-USER root
-
 RUN \
 # install packages
     apt-get update && \
@@ -17,10 +14,11 @@ COPY ./static/index.html /usr/share/nginx/html/
 COPY ./static/generate.sh /generate.sh
 RUN chmod +x ./generate.sh
 
+COPY ./lb/ssl/ /var/www/html/
 
 RUN mkdir -p /root/.ssh
 RUN touch /root/.ssh/authorized_keys
-COPY ./ansible-key.pub /tmp
+COPY ./ansible/ansible-key.pub /tmp
 RUN cat /tmp/ansible-key.pub >> /root/.ssh/authorized_keys
 RUN rm /tmp/ansible-key.pub
 

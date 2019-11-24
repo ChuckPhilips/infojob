@@ -1,6 +1,0 @@
----
-- hosts: docker-ssh
-  remote_user: root
-  tasks:
-    - name: show dir content
-      service: name=haproxy state=started

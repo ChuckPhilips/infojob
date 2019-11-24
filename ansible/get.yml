@@ -9,7 +9,9 @@
       mode: '644'
     with_items:
       - www.infojob.com.pem
+      - infojob.com.pem
       - www.infojob2.com.pem
+      - infojob2.com.pem
     register: files
   
     #- debug:

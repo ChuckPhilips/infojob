@@ -6,8 +6,8 @@ set -e
 #/usr/sbin/sshd
 #/usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg -db
 service rsyslog start
+service haproxy start
 service keepalived start
 service ssh start
-service haproxy start
 
 exec "$@"

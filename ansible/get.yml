@@ -24,7 +24,7 @@
       path: "{{ item.dest }}"
       valid_at:
         point_1: "+1d"
-        point_2: "+5w"
+        point_2: "+51w"
     loop: "{{ files.results }}"
     register: certificates_validation
     no_log: True

@@ -19,4 +19,12 @@ RUN mkdir /ansible
 RUN mkdir /ansible/ssl
 COPY ./ansible/sync.yml /ansible/sync.yml
 COPY ./ansible/get.yml /ansible/get.yml
+COPY ./ansible/entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+COPY ./ansible/root /var/spool/cron/crontabs/
+RUN chmod 600 /var/spool/cron/crontabs/
+RUN chown root:crontab /var/spool/cron/crontabs/
 WORKDIR /ansible
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/bin/bash"]

@@ -14,6 +14,7 @@ COPY ./ansible/hosts /etc/ansible/hosts
 COPY ./ansible/sync.yml /tmp/sync.yml
 COPY ./ansible/get.yml /tmp/get.yml
 COPY ./ansible/ansible-key /root/.ssh/id_rsa
+RUN chmod 600 /root/.ssh/id_rsa
 COPY ./ansible/ansible-key.pub /root/.ssh/id_rsa.pub
  
 RUN mkdir /ansible

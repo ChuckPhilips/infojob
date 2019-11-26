@@ -1,10 +1,14 @@
-# TESTING
+# HA HAPROXY SETUP
 
 ## Setup:
+```shell
 docker-compose up -d
+```
 
 ## Haproxy status:
+```shell
 http://localhost:28090/server/status
+```
 
 ## Testing certificates:
 ```shell

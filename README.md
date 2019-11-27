@@ -22,8 +22,7 @@ curl --insecure -iLv --resolve 'infojob2.com:443:172.24.0.7' https://infojob2.co
 
 ## 4. Simulate adding of new certificate
 ```shell
-docker container exec -ti infojob_static_1 bash
-./generate.sh
+docker container exec -ti infojob_static_1 bash generate.sh
 
 After 1 minute run command and check for new expiration time:
 

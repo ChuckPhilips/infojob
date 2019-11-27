@@ -40,6 +40,9 @@ services:
       infojob:
           ipv4_address: 172.24.0.2
     tty: true
+    depends_on:
+      - web1
+      - web2
 
   lb2:
     image: zgchuck/infojob-lb2
@@ -57,6 +60,9 @@ services:
       infojob:
           ipv4_address: 172.24.0.3
     tty: true
+    depends_on:
+      - web1
+      - web2
 
   ansible:
     image: zgchuck/ansible
@@ -69,6 +75,8 @@ services:
       infojob:
           ipv4_address: 172.24.0.8
     tty: true
+    depends_on:
+      - static
 
   static:
     image: zgchuck/infojob-static

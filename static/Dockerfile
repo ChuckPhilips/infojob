@@ -10,8 +10,8 @@ RUN \
 
 COPY ./static/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
-COPY ./static/generate.sh /generate.sh
-RUN chmod +x ./generate.sh
+COPY ./static/generate.sh /usr/local/sbin/generate.sh
+RUN chmod +x ./usr/local/sbin/generate.sh
 
 COPY ./lb/ssl/ /var/www/html/
 

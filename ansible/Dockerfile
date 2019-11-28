@@ -17,7 +17,6 @@ COPY ./ansible/ansible-key.pub /root/.ssh/id_rsa.pub
  
 RUN mkdir /ansible
 RUN mkdir /ansible/ssl
-COPY ./ansible/sync.yml /ansible/sync.yml
 COPY ./ansible/get.yml /ansible/get.yml
 COPY ./ansible/entrypoint.sh /
 RUN chmod +x /entrypoint.sh

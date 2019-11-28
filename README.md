@@ -1,4 +1,5 @@
 # HA HAPROXY SETUP
+Cluster has two HAProxy nodes that are being monitored by keepalived, two web nodes behind lbs. One static node on which new certificates are being uploaded and one ansible node that is pulling certificates from static node and uploading them to lb nodes.
 
 ## 1. Setup:
 ```shell
